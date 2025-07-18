@@ -22,7 +22,7 @@
   height: 25rem; /* Set a consistent height for all cards */
   margin: 1rem auto;
   border: none !important;
-  background: rgb(192, 151, 151) !important;
+  background: antiquewhite !important;
   padding-top: 0.5rem;
   display: flex;
   flex-direction: column;

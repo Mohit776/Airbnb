@@ -1,21 +1,123 @@
 <% layout('layouts/boilerplate.ejs') %>
 
-<body>
-  <main>
-    <h2 class="text-center my-4">All Listings</h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-      <% for (let listing of allListings) { %>
-      <div class="col">
-        <div class="card">
-          <img src="<%= listing.image %>" class="card-img-top" alt="Listing Image" />
-          <div class="card-body">
-            <h5 class="card-title"><%= listing.title %></h5>
-            <p class="card-price">₹<%= listing.price %>/Per Night</p>
-            <a href="/listings/<%= listing._id %>" class="btn btn-primary">Show More</a>
+<body style="background: #f7f7fa;">
+  <main class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 display-5 fw-bold text-primary">Explore Our Places</h2>
+      
+      <!-- Search and Filter Section -->
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="input-group shadow-sm">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input type="text" class="form-control border-start-0" placeholder="Search listings...">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group shadow-sm">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-filter text-muted"></i></span>
+            <select class="form-select border-start-0">
+              <option selected>All Categories</option>
+              <option>Beachfront</option>
+              <option>Mountain View</option>
+              <option>City Center</option>
+              <option>Countryside</option>
+            </select>
           </div>
         </div>
       </div>
-      <% } %>
+
+      <!-- Listings Grid -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <% for (let listing of allListings) { %>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm overflow-hidden listing-card">
+            <div class="position-relative">
+              <img src="<%= listing.image %>" class="card-img-top listing-image" alt="<%= listing.title %>">
+              <div class="position-absolute top-0 end-0 m-2">
+                <span class="badge bg-danger bg-opacity-80 text-white"><i class="bi bi-heart-fill"></i></span>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-1"><%= listing.title %></h5>
+              <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-primary"></i> <%= listing.location %></p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                  <span class="fw-bold fs-5 text-primary">₹<%= listing.price %></span>
+                  <span class="text-muted small">/night</span>
+                </div>
+                <a href="/listings/<%= listing._id %>" class="btn btn-sm btn-outline-primary rounded-pill">
+                  View <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <!-- Pagination -->
+      <nav class="mt-5" aria-label="Listings pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </main>
 </body>
+
+<style>
+  body {
+    background: #f7f7fa;
+  }
+  .listing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .listing-image {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .listing-card:hover .listing-image {
+    transform: scale(1.05);
+  }
+  
+  .page-item.active .page-link {
+    background-color: #4361ee;
+    border-color: #4361ee;
+  }
+  
+  .page-link {
+    color: #4361ee;
+  }
+  
+  .btn-outline-primary {
+    border-color: #4361ee;
+    color: #4361ee;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #4361ee;
+    color: white;
+  }
+  
+  .text-primary {
+    color: #4361ee !important;
+  }
+</style>

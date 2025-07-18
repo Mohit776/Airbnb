@@ -1,27 +1,52 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top" ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i>   Air bnb</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="/listings">Listings</a>
-          <a class="nav-link" href="/listings/new">Add New Listings</a>
-         
-        </div>
-        <div class="navbar-nav ms-auto">
-          <% if(!currUser){%>
-
-          <a class="nav-link" aria-current="page" href="/signup">Signup</a>
-          <a class="nav-link" href="/login">Log in</a>
-          <% } %>
-          <% if(currUser){%>
-          <a class="nav-link" href="/logout">Log out</a>
-          <% } %>
-         
-        </div>
+<nav class="navbar navbar-expand-md bg-white border-bottom shadow-sm sticky-top py-2">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary" href="/">
+      <i class="fa-solid fa-compass fs-4"></i>
+      <span>Airbnb</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="/">Home</a>
+        <a class="nav-link" href="/listings">Listings</a>
+        <a class="nav-link" href="/listings/new">Add New Listing</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(!currUser){ %>
+          <a class="nav-link" href="/signup">Sign Up</a>
+          <a class="nav-link" href="/login">Log In</a>
+        <% } %>
+        <% if(currUser){ %>
+          <a class="nav-link" href="/logout">Log Out</a>
+        <% } %>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<!-- Add this CSS to your main stylesheet -->
+<style>
+.navbar {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.navbar-brand {
+  color: #ff385c !important;
+}
+.nav-link {
+  color: #222 !important;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.nav-link:hover, .nav-link.active {
+  color: #ff385c !important;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+}
+.navbar-nav .nav-link {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+</style>

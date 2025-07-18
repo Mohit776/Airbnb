@@ -86,7 +86,7 @@ app.use("/", userRouter);
 
 // Home Route - Basic Test Endpoint
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.render("listings/home.ejs", { title: "Airbnb Clone" });
 });
 
 // For Testing

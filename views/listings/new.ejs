@@ -1,46 +1,68 @@
 <% layout('layouts/boilerplate.ejs') %>
 <body>
-  <div class="container-new mt-5">
-    <h3 class="mb-4">Create New Listing</h3>
-    <form action="/listings" method="post" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Title" name="listing[title] "required  />
-        <div class="invalid-feedback">
-          Please choose a Title
+  <div class="container-new mt-5 d-flex justify-content-center align-items-center">
+    <div class="form-wrapper bg-white p-5 rounded-4 shadow-lg w-100" style="max-width: 500px;">
+      <h3 class="mb-4 text-center fw-bold" style="color:#ff385c;">Create New Listing</h3>
+      <form action="/listings" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Title" name="listing[title]" required />
+          <div class="invalid-feedback">
+            Please choose a Title
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <textarea class="form-control" placeholder="Description" name="listing[description]"required ></textarea>
-        <div class="invalid-feedback">
-          Please choose a Valid Description
+        <div class="mb-3">
+          <textarea class="form-control form-control-lg" placeholder="Description" name="listing[description]" required rows="2"></textarea>
+          <div class="invalid-feedback">
+            Please choose a Valid Description
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Image URL" name="listing[image]"  />
-        
-      </div>
-      <div class="mb-3">
-        <input class="form-control" placeholder="Price" name="listing[price]"required  />
-        <div class="invalid-feedback">
-          Please choose a Valid Price
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Image URL" name="listing[image]" />
         </div>
-      </div>
-      <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Location" name="listing[location]"required  />
-        <div class="invalid-feedback">
-          Please choose a Valid Location
+        <div class="mb-3">
+          <input class="form-control form-control-lg" type="number" min="0" placeholder="Price" name="listing[price]" required />
+          <div class="invalid-feedback">
+            Please choose a Valid Price
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Country" name="listing[country]"required  />
-        <div class="invalid-feedback">
-          Please choose a Country 
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Location" name="listing[location]" required />
+          <div class="invalid-feedback">
+            Please choose a Valid Location
+          </div>
         </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Country" name="listing[country]" required />
+          <div class="invalid-feedback">
+            Please choose a Country 
+          </div>
+        </div>
+        <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Submit</button>
+      </form>
+    </div>
   </div>
 
-  
+<style>
+body {
+  background: #f7f7fa;
+}
+.form-wrapper {
+  border-top: 6px solid #ff385c;
+}
+.form-control:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 0.2rem rgba(255,56,92,.15);
+}
+.btn-danger {
+  background-color: #ff385c;
+  border-color: #ff385c;
+  color: #fff;
+  transition: background 0.2s;
+}
+.btn-danger:hover {
+  background-color: #e03150;
+  border-color: #e03150;
+}
+</style>
 </body>
 
