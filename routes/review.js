@@ -36,8 +36,10 @@ router.post(
     const newReview = new Review(req.body.review);
 
     listing.reviews.push(newReview);
+    newReview.author = req.user._id;
     await newReview.save();
     await listing.save();
+  //  console.log(newReview)
     req.flash("success", "Review Added Successfully")
 
     res.redirect(`/listings/${req.params.id}`);

@@ -35,6 +35,8 @@
     </div>
 
     <!-- Add Review Section -->
+
+  <%  if(currUser){ %>
     <div class="my-5">
       <h4 class="fw-bold mb-3 text-primary">Leave a Review</h4>
       <form action="/listings/<%= listing._id %>/reviews" method="POST" class="p-4 rounded-3 shadow-sm bg-white">
@@ -49,6 +51,7 @@
         <button type="submit" class="btn btn-outline-primary px-4">Submit</button>
       </form>
     </div>
+<%  } %>
 
     <!-- Display Reviews Section -->
     <div class="my-5">
@@ -58,12 +61,15 @@
         <div class="col">
           <div class="card card-review shadow-sm border-0 rounded-4 h-100">
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title mb-2 text-secondary"></h5>
+              <h5 class="card-title mb-2 text-secondary"> <%= review.author.username %></h5>
               <p class="card-text flex-grow-1"><%= review.comment %></p>
               <h6 class="card-subtitle mb-3 text-warning">Rating: <%= review.rating %> <span>⭐</span></h6>
+
+                <%  if(currUser && currUser._id.equals(listing.owner._id) ){ %>
               <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
               </form>
+              <%  } %>
             </div>
           </div>
         </div>
