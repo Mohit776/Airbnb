@@ -10,10 +10,15 @@
       </div>
       <div class="col-md-6">
         <h2 class="fw-bold text-primary mb-3"><%= listing.title %></h2>
+        
+        <h5>Property Owned By <%= listing.owner.username %></i></h5>
         <p class="mb-2"><span class="fw-semibold text-secondary">Description:</span> <%= listing.description %></p>
         <p class="mb-2"><span class="fw-semibold text-secondary">Price:</span> <span class="text-danger">₹<%= listing.price %></span> <span class="text-muted">/Per Night</span></p>
         <p class="mb-2"><span class="fw-semibold text-secondary">Location:</span> <%= listing.location %></p>
         <p class="mb-4"><span class="fw-semibold text-secondary">Country:</span> <%= listing.country %></p>
+      
+  <!-- <%    if( currUser && currUser._id.equals(listing.owner._id)) { %> -->
+      <br>
         <div class="d-flex gap-2">
           <form action="/listings/<%= listing._id %>/edit" method="get">
             <button class="btn btn-warning px-4">Edit</button>
@@ -22,6 +27,10 @@
             <button type="submit" class="btn btn-danger px-4">Delete</button>
           </form>
         </div>
+    <!-- <%  } %> -->
+
+
+
       </div>
     </div>
 

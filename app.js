@@ -113,7 +113,7 @@ mongoose
     // Start the server only after the database connection is successful
     app.listen(8000, () => {
       console.log("===============================");
-      console.log(" Server is running on port 8000");
+      console.log("❤️  Server is running on port 8000 ❤️  ");
       console.log("===============================");
     });
   })
@@ -125,7 +125,7 @@ mongoose
 // =======================
 // Error Handling Middleware
 // =======================
-app.use((err, req, res, next) => {
-  const { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).render("listings/error.ejs", { statusCode, message });
-});
+// app.use((err, req, res, next) => {
+//   const { statusCode = 500, message = "Something went wrong" } = err;
+//   res.status(statusCode).render("listings/error.ejs", { statusCode, message });
+// });

@@ -16,8 +16,13 @@ async function main() {
 // Function to seed the database
 const initDB = async () => {
   await Listing.deleteMany({});
-  const result = await Listing.insertMany(initData.data);
-  console.log("✅ Data seeded successfully!", result); // Debugging: Check seeded data
+  const listingsWithOwner = initData.data.map((obj) => ({
+    ...obj,
+    owner: "687a9cf1ce1e75a03c7c906a"
+  }));
+
+  const result = await Listing.insertMany(listingsWithOwner);
+  console.log("✅ Data seeded successfully!", result);
 };
 
 // Connect and then seed

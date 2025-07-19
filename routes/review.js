@@ -50,7 +50,7 @@ router.delete(
     const { id ,reviewId} = req.params;
     await Listing.findByIdAndUpdate(id);
     await Review.findByIdAndDelete(reviewId)
-    req.flash("success", "Listing Deleted Successfully")
+    req.flash("success", "Review Deleted Successfully")
     res.redirect(`/listings/${req.params.id}`);
    
   })

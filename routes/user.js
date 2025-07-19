@@ -20,7 +20,7 @@ router.post("/login",saveRedirectUrl,
         }),
         async(req, res) => {
             req.flash("success", "Logged in Successfully" )
-         let redirectUrl = req.locals.redirectUrl || "/listngs"
+         let redirectUrl = "/listings"
     res.redirect(redirectUrl)
   });
   
