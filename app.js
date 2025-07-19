@@ -12,6 +12,8 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+require('dotenv').config();
+
 
 // =======================
 // Load Environment Variables
@@ -103,7 +105,7 @@ app.get("/demo", async (req, res) => {
 // =======================
 // MongoDB Connection
 // =======================
-const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/Airbnb";
+const MONGO_URL = process.env.MONGO_URL ;
 
 mongoose
   .connect(MONGO_URL)
