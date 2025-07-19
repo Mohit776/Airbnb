@@ -8,11 +8,14 @@ const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 const dotenv = require("dotenv");
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 require('dotenv').config();
+const MONGO_URL = process.env.MONGO_URL ;
+const DB = process.env.AtlasDB_URL ;
 
 
 // =======================
@@ -49,7 +52,23 @@ app.use(express.static(path.join(__dirname, "/public")));
 // =======================
 // Cookies and Passport setup
 // =======================
+
+const store = MongoStore.create({
+  mongoUrl: DB,
+  touchAfter: 24 * 3600, // time in seconds
+  crypto:{
+    secret:"mykey"
+    
+  }
+})
+
+
+
+
+
+
 const sessionOptions = {
+  store,
   secret: "mykey",
   resave: false,
   saveUninitialized: true,
@@ -105,10 +124,9 @@ app.get("/demo", async (req, res) => {
 // =======================
 // MongoDB Connection
 // =======================
-const MONGO_URL = process.env.MONGO_URL ;
 
 mongoose
-  .connect(MONGO_URL)
+  .connect(DB)
   .then(() => {
     console.log("🟢 MongoDB connected!🟢");
 
