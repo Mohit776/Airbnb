@@ -1,7 +1,7 @@
 
-# Airbnb Clone 🏡
+# HomeTrip 🏡
 
-This is a full-stack Airbnb clone built using modern web technologies. It features user authentication, property listings, review functionality, and a responsive UI.
+This is a full-stack Hotel Booking Web app built using modern web technologies. It features user authentication, property listings, review functionality, and a responsive UI.
 
 ## 🔧 Tech Stack
 
@@ -24,7 +24,7 @@ This is a full-stack Airbnb clone built using modern web technologies. It featur
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/airbnb-clone.git
+   git clone https://github.com/Mohit776/airbnb-clone.git
    cd airbnb-clone
    npm install
 SECRET=your_session_secret
