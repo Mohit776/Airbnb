@@ -40,11 +40,9 @@ router.post("/login",saveRedirectUrl,
         
     } catch (error) {
         req.flash("error", `${username} already exists `)
-        res.redirect("/signup")
-
+        res.redirect("/signup") 
         
     }
-
 
   }))
   

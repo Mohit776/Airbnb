@@ -63,10 +63,6 @@ const store = MongoStore.create({
 })
 
 
-
-
-
-
 const sessionOptions = {
   store,
   secret: process.env.Secret ,
@@ -142,9 +138,9 @@ mongoose
     process.exit(1); // Exit the process
   });
 
-// =======================
+// =========================
 // Error Handling Middleware
-// =======================
+// =========================
 // app.use((err, req, res, next) => {
 //   const { statusCode = 500, message = "Something went wrong" } = err;
 //   res.status(statusCode).render("listings/error.ejs", { statusCode, message });

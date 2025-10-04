@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const initData = require("./data");
 const Listing = require("../models/listing.js");
 
-const MONGO_URL = "mongodb://localhost:27017/Airbnb"; // keep naming consistent
+const MONGO_URL = "mongodb+srv://HomeTrip:MLkjfvEPTVpu4H9e@cluster0.bus31.mongodb.net/HomeTrip?retryWrites=true&w=majority&appName=Cluster0"; // keep naming consistent
 
 // Function to connect to MongoDB
 async function main() {
@@ -18,7 +18,7 @@ const initDB = async () => {
   await Listing.deleteMany({});
   const listingsWithOwner = initData.data.map((obj) => ({
     ...obj,
-    owner: "687a9cf1ce1e75a03c7c906a"
+    owner: "68e144864c31b7eba2bff9c4"
   }));
 
   const result = await Listing.insertMany(listingsWithOwner);

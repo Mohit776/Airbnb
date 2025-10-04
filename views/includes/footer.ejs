@@ -1,27 +1,67 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
 
 
-    <footer class="text-center text-lg-start" style="background-color: #d8a9a9;">
+    <footer class="footer-section">
       <div class="container d-flex justify-content-center py-5">
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <a href="#" class="social-btn mx-2">
           <i class="fab fa-facebook-f"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        </a>
+        <a href="#" class="social-btn mx-2">
           <i class="fab fa-youtube"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        </a>
+        <a href="#" class="social-btn mx-2">
           <i class="fab fa-instagram"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        </a>
+        <a href="#" class="social-btn mx-2">
           <i class="fab fa-twitter"></i>
-        </button>
+        </a>
       </div>
-  
-      <!-- Copyright -->
-      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+
+      <div class="copyright-section text-center p-3">
+        © 2025 Copyright:
+        <a class="copyright-link" href="https://mdbootstrap.com/">MDBootstrap.com</a>
       </div>
-      <!-- Copyright -->
     </footer>
-    
+
+    <style>
+      .footer-section {
+        background-color: #d8a9a9;
+        margin-top: 2rem;
+      }
+
+      .social-btn {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #54456b;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-btn:hover {
+        background-color: #443756;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+
+      .copyright-section {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+      }
+
+      .copyright-link {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .copyright-link:hover {
+        color: #f0f0f0;
+        text-decoration: underline;
+      }
+    </style>
