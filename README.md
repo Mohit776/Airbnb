@@ -26,7 +26,7 @@ This is a full-stack Hotel Booking Web app built using modern web technologies. 
    ```bash
    git clone https://github.com/Mohit776/airbnb-clone.git
    cd airbnb-clone
-   npm install
+   node app.js
 SECRET=your_session_secret
 DB_URL=your_mongodb_uri
 
